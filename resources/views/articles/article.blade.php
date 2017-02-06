@@ -7,7 +7,7 @@
 
     <p class="blog-post-meta">
 
-        <a href="#">{{ $article->user->name }}</a> on
+        <a href="#">{{ $article->user->username }}</a> on
         {{ $article->created_at->toFormattedDateString() }}
 
     </p>

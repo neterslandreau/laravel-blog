@@ -3,7 +3,7 @@
         <h4><em>The Neters Group</em></h4>
         <p>
             Are you tired of hearing news you really don't want to hear?
-            Spend some time here with us, and we'll show you what really bad news can be like!
+            Spend some time here with us, and we'll show you what really boring news can be like!
         </p>
     </div>
     <div class="sidebar-module">
