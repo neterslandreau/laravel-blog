@@ -1,6 +1,6 @@
 <div class="blog-post">
     <h2 class="blog-post-title">
-        <a href="/articles/{{ $article->id }}">
+        <a href="/articles/{{ $article->slug }}">
             {{ $article->title }}
         </a>
     </h2>

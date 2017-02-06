@@ -14,9 +14,9 @@
 Route::get('/', 'ArticlesController@index')->name('home');
 //Route::get('/articles' , 'ArticlesController@index');
 Route::get('/articles/create', 'ArticlesController@create');
-Route::get('/articles/{article}', 'ArticlesController@show');
+Route::get('/articles/{slug}', 'ArticlesController@show');
 Route::post('/articles', 'ArticlesController@store');
-Route::post('/articles/{article}/comments', 'CommentsController@store');
+Route::post('/articles/{slug}/comments', 'CommentsController@store');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');

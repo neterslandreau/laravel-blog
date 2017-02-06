@@ -23,8 +23,9 @@ class ArticlesController extends Controller
         return view('articles.index', compact('articles', 'archives'));
     }
 
-    public function show(Article $article)
+    public function show(string $slug)
     {
+        $article = Article::where('slug', $slug)->first();
         return view('articles.show', compact('article'));
     }
 
