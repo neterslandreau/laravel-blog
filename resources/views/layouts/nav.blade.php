@@ -10,7 +10,7 @@
                 <a class="nav-link ml-auto" href="{{ route('logout') }}"
                    onclick="event.preventDefault();
                    document.getElementById('logout-form').submit();">
-                    Logout as {{ Auth::user()->name }}
+                    Logout as {{ Auth::user()->username }}
                 </a>
 
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
