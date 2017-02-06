@@ -3,10 +3,12 @@
 namespace App;
 
 use Carbon\Carbon;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class Article extends Model
 {
     use Uuids;
+    use Sluggable;
 
     public $incrementing = false;
 
@@ -39,6 +41,15 @@ class Article extends Model
 
         }
 
+    }
+
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'title',
+            ],
+        ];
     }
 
     public static function archives()
