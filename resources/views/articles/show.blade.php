@@ -4,7 +4,20 @@
     <div class="col-sm-8 blog-main">
         <h1>{{ $article->title }}</h1>
         {{ $article->body }}
+
+        @if (count($article->tags))
+            <ul>
+                @foreach ($article->tags as $tag)
+                    <li>
+                        <a href="/articles/tags/{{ $tag->name }}">
+                            {{ $tag->name }}
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
+        @endif
         <hr>
+
         <div class="comments">
             <ul class="list-group">
 
@@ -20,6 +33,7 @@
             </ul>
         </div>
         <hr>
+
         <div class="card">
             <div class="card-block">
                 @include('layouts.errors')
@@ -35,4 +49,5 @@
             </div>
         </div>
     </div>
+
 @endsection

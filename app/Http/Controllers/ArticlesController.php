@@ -46,6 +46,8 @@ class ArticlesController extends Controller
             new Article(request(['title', 'body']))
         );
 
+        session()->flash('message', 'Your article has been published.');
+
         return redirect()->home();
     }
 }

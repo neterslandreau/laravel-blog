@@ -12,7 +12,7 @@ class Article extends Model
 
     public $incrementing = false;
 
-    protected $fillable = ['body', 'title'];
+    protected $fillable = ['body', 'title', 'slug'];
 
     public function comments()
     {
@@ -58,5 +58,10 @@ class Article extends Model
             ->groupBy('year', 'month')
             ->orderByRaw('min(created_at) desc')
             ->get();
+    }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
     }
 }

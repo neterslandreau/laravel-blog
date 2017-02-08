@@ -17,6 +17,7 @@ Route::get('/articles/create', 'ArticlesController@create');
 Route::get('/articles/{slug}', 'ArticlesController@show');
 Route::post('/articles', 'ArticlesController@store');
 Route::post('/articles/{slug}/comments', 'CommentsController@store');
+Route::get('/articles/tags/{tag}', 'TagsController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');

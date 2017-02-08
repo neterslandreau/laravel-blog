@@ -14,7 +14,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         view()->composer('layouts.blog-sidebar', function ($view) {
-           $view->with('archives', \App\Article::archives());
+            $archives = \App\Article::archives();
+            $tags = \App\Tag::has('articles')->pluck('name');
+            $view->with(compact('archives', 'tags'));
         });
     }
 

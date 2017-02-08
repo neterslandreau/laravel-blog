@@ -14,4 +14,5 @@
 
     {{ $article->body }}
 
+
 </div>
