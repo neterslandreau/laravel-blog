@@ -5,23 +5,26 @@
         <h1>{{ $article->title }}</h1>
         {{ $article->body }}
 
-        @if (count($article->tags))
-            <ul>
-                @foreach ($article->tags as $tag)
-                    <li>
-                        <a href="/articles/tags/{{ $tag->name }}">
-                            {{ $tag->name }}
-                        </a>
-                    </li>
-                @endforeach
-            </ul>
-        @endif
         <hr>
+
+        @if ($tags)
+        <h4>Tags:</h4>
+        <ul class="list-inline">
+        <?php $tags = preg_split('/,/', $tags); ?>
+            @foreach ($tags as $tag)
+            <li>
+                <a class="btn btn-info" href="/articles/tagged/{{ $tag }}" role="button">{{ $tag }}</a>
+            </li>
+            @endforeach
+        </ul>
+         <hr>
+         @endif
 
         <div class="comments">
             <ul class="list-group">
 
                 @foreach ($article->comments as $comment)
+                <?php //dd($comment->id); ?>
                 <li class="list-group-item">
                     <strong>
                         {{ $comment->user->username }} said {{ $comment->created_at->diffForHumans() }}: &nbsp;
@@ -49,5 +52,7 @@
             </div>
         </div>
     </div>
-
+<script>
+tags.split(',');
+</script>
 @endsection

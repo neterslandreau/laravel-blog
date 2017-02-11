@@ -15,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
     {
         view()->composer('layouts.blog-sidebar', function ($view) {
             $archives = \App\Article::archives();
-            $tags = \App\Tag::has('articles')->pluck('name');
+            $tags = \App\Article::existingTags();
             $view->with(compact('archives', 'tags'));
         });
     }

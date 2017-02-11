@@ -24,10 +24,22 @@
             </div>
 
             <div class="form-group">
+                <label for="tags">Tags</label>
+                <input id="tags" name="tags">
+            </div>
+
+            <div class="form-group">
                 <button type="submit" class="btn btn-primary">Publish</button>
             </div>
         </form>
 
     </div>
+    <script>
+        var tags = [
+            @foreach ($tags as $tag)
+            {tag: "{{ $tag }}" },
+            @endforeach
+        ];
+    </script>
 
 @endsection

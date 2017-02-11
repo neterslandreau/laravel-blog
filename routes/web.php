@@ -17,7 +17,10 @@ Route::get('/articles/create', 'ArticlesController@create');
 Route::get('/articles/{slug}', 'ArticlesController@show');
 Route::post('/articles', 'ArticlesController@store');
 Route::post('/articles/{slug}/comments', 'CommentsController@store');
-Route::get('/articles/tags/{tag}', 'TagsController@index');
+Route::get('/articles/tagged/{tag}', 'ArticlesController@tagged');
+// Route::get('/tags', function() {
+// 	return view('home');
+// });
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');

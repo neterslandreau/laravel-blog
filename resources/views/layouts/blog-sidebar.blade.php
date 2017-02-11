@@ -28,11 +28,7 @@
         <ol class="list-unstyled">
 
             @foreach ($tags as $tag)
-                <li>
-                    <a href="/articles/tags/{{ $tag }}">
-                        {{ $tag }}
-                    </a>
-                </li>
+                <li><a href="/articles/tagged/{{ $tag->slug }}">{{ $tag->name }}</a></li>
             @endforeach
 
         </ol>

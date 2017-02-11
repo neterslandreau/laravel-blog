@@ -20,34 +20,48 @@ class ArticlesController extends Controller
             ->filter(request(['month', 'year']))
             ->get();
 
-        return view('articles.index', compact('articles', 'archives'));
+        return view('articles.index', compact('articles'));
     }
 
     public function show(string $slug)
     {
         $article = Article::where('slug', $slug)->first();
-        return view('articles.show', compact('article'));
+        $tags = $article->tagnames;
+        return view('articles.show', compact('article', 'tags'));
     }
 
     public function create()
     {
-        return view('articles.create');
+        $tags = Article::existingTags()->pluck('name');
+        return view('articles.create', compact('tags'));
     }
 
     public function store()
     {
+
         $this->validate(request(), [
             'title' => 'required',
             'body' => 'required',
 
         ]);
 
-        auth()->user()->publish(
-            new Article(request(['title', 'body']))
-        );
+        $article = Article::create([
+            'user_id' => auth()->id(),
+            'title' => request('title'),
+            'body' => request('body')
+        ]);
+        if (request('tags')) {
+            $article->tag(explode(',', request('tags')));
+        }
 
         session()->flash('message', 'Your article has been published.');
 
         return redirect()->home();
+    }
+
+    public function tagged(string $tag)
+    {
+        $articles = Article::withAllTags([$tag])->get();
+        return view('articles.index', compact('articles'));
     }
 }

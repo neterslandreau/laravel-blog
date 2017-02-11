@@ -1,8 +1,4 @@
-<?php
-
-namespace App;
-
-
+<?php namespace App;
 
 class Comment extends Model
 {

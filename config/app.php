@@ -177,6 +177,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Cviebrock\EloquentSluggable\ServiceProvider::class,
+        Conner\Tagging\Providers\TaggingServiceProvider::class,
 
     ],
 

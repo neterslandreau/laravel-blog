@@ -1,18 +1,20 @@
-<?php
-
-namespace App;
+<?php namespace App;
 
 use Carbon\Carbon;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Conner\Tagging\Taggable;
 
 class Article extends Model
 {
     use Uuids;
     use Sluggable;
+    use Taggable;
+
+    protected $table = 'articles';
 
     public $incrementing = false;
 
-    protected $fillable = ['body', 'title', 'slug'];
+    protected $fillable = ['body', 'title', 'slug', 'user_id'];
 
     public function comments()
     {
@@ -60,8 +62,4 @@ class Article extends Model
             ->get();
     }
 
-    public function tags()
-    {
-        return $this->belongsToMany(Tag::class);
-    }
 }
