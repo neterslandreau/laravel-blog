@@ -3,18 +3,22 @@
 use Carbon\Carbon;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Conner\Tagging\Taggable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Article extends Model
 {
     use Uuids;
     use Sluggable;
     use Taggable;
+    use SoftDeletes;
 
     protected $table = 'articles';
 
     public $incrementing = false;
 
     protected $fillable = ['body', 'title', 'slug', 'user_id'];
+
+    protected $dates = ['deleted_at'];
 
     public function comments()
     {

@@ -2,7 +2,14 @@
 @section ('content')
 
     <div class="col-sm-8 blog-main">
-        <h1>{{ $article->title }}</h1>
+        <h1>
+            {{ $article->title }}
+            @if ($owner)
+            <a class="small glyphicon glyphicon-pencil" href="/articles/{{ $article->slug }}/edit" role="button"></a>
+            <a class="small glyphicon glyphicon-trash" href="/articles/{{ $article->slug }}/delete" role="button"></a>
+            @endif
+        </h1>
+
         {{ $article->body }}
 
         <hr>

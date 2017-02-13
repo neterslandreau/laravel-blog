@@ -29,6 +29,14 @@
 
 @endif
 
+@if ($flash = session('error'))
+
+<div class="alert alert-danger" role="alert">
+    {{ $flash }}
+</div>
+
+@endif
+
 <div class="container">
 
     <div class="row">
