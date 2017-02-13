@@ -2,8 +2,6 @@
     <div class="container">
         <nav class="nav blog-nav">
             <a class="nav-link active" href="/">Home</a>
-            <a class="nav-link" href="#">New features</a>
-            <a class="nav-link" href="#">Press</a>
             @if (Auth::check())
                 <a class="nav-link" href="/articles/create">Add Article</a>
 
