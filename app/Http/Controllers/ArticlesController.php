@@ -53,7 +53,9 @@ class ArticlesController extends Controller
                 if (request('tags')) {
                     $article->retag(explode(',', request('tags')));
                 }
+                $tags = $article->tagnames;
                 session()->flash('message', 'The article was successfully editted.');
+                return view('articles.show', compact('article', 'tags', 'owner'));
             }
 
 
