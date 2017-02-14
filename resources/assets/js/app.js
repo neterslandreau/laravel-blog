@@ -3,7 +3,7 @@ require('selectize');
 var bootstrap = require('bootstrap-sass');
 
 $( document ).ready(function() {
-    if (window.location.pathname.match(/create||edit/)) {
+    if (window.location.pathname.match(/create|edit/)) {
         $('#tags').selectize({
             delimiter: ',',
             persist: false,

@@ -10302,7 +10302,7 @@ __webpack_require__(5);
 var bootstrap = __webpack_require__(3);
 
 $(document).ready(function () {
-    if (window.location.pathname.match(/create||edit/)) {
+    if (window.location.pathname.match(/create|edit/)) {
         $('#tags').selectize({
             delimiter: ',',
             persist: false,

@@ -59,7 +59,4 @@
             </div>
         </div>
     </div>
-<script>
-tags.split(',');
-</script>
 @endsection
