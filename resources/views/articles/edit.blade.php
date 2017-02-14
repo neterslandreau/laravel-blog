@@ -4,7 +4,9 @@
 
     <div class="col-sm-8 blog-main">
 
-    <h1>Edit Article</h1>
+    <div class="inline-headers">
+    <h1 class="inline">Edit Article</h1><a href="/articles/{{ $article->slug }}">Cancel</a>
+    </div>
 
         <hr>
 
