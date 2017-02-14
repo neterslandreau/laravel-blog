@@ -4,10 +4,6 @@
     <div class="col-sm-8 blog-main">
         <h1>
             {{ $article->title }}
-            @if ($owner)
-            <a class="btn-sm glyphicon glyphicon-pencil" href="/articles/{{ $article->slug }}/edit" role="button"></a>
-            <a class="btn-sm glyphicon glyphicon-trash" href="/articles/{{ $article->slug }}/delete" role="button"></a>
-            @endif
         </h1>
 
         {{ $article->body }}

@@ -4,12 +4,6 @@
 
     <div class="col-sm-8 blog-main">
 
-    <div class="inline-headers">
-    <h1 class="inline">Edit Article</h1><a href="/articles/{{ $article->slug }}">Cancel</a>
-    </div>
-
-        <hr>
-
         @include ('layouts.errors')
         <form method="post" action="/articles/{{ $article->slug }}/edit">
 
