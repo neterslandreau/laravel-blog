@@ -25,13 +25,14 @@
 
     <div class="sidebar-module">
         <h4>Tags</h4>
-        <ol class="list-unstyled">
+        <div id="tagcloud">
 
-            @foreach ($tags as $tag)
-                <li><a href="/articles/tagged/{{ $tag->slug }}">{{ $tag->name }}</a></li>
-            @endforeach
-
-        </ol>
+        @foreach ($tags as $tag)
+            <a href="/articles/tagged/{{ $tag->slug }}" rel="{{ $tag->count }}">{{ $tag->name }}</a>
+        @endforeach
+        
+        </div>
+        
     </div>
 
 </div>

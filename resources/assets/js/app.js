@@ -1,6 +1,6 @@
-window.$ = window.jQuery = require('jquery')
+require('./bootstrap');
 require('selectize');
-var bootstrap = require('bootstrap-sass');
+require('./jquery.tagcloud');
 
 $( document ).ready(function() {
     if (window.location.pathname.match(/create|edit/)) {
@@ -18,4 +18,7 @@ $( document ).ready(function() {
             }
         });
     }
+    $('#tagcloud a').tagcloud({
+        color: { start: '#3498db', end: '#46cfb0' }
+    });
 });
