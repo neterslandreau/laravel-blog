@@ -55,7 +55,7 @@ class ArticlesController extends Controller
                 }
                 $tags = $article->tagnames;
                 session()->flash('message', 'The article was successfully editted.');
-                return view('articles.show', compact('article', 'tags', 'owner'));
+                return redirect()->home();
             }
 
 
