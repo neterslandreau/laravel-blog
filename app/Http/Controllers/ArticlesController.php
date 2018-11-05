@@ -17,7 +17,7 @@ class ArticlesController extends Controller
     public function index()
     {
         $articles = Article::latest()
-            ->filter(request(['month', 'year']))
+            ->filter(request()->input(['date.month', 'date.year']))
             ->get();
 
         return view('articles.index', compact('articles'));
